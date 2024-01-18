@@ -23,6 +23,6 @@ jobs:
               });
               console.log('comment added')
             } catch (error) {
-              console.log('error')
+              console.log(error)
               console.log('comment adding failed')
             }
