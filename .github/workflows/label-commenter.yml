@@ -104,7 +104,7 @@ jobs:
               console.log('comment adding failed')
             }
       - name: Block merging if performance label is added without completion label
-        if: contains(github.event.pull_request.labels.*.name, 'performance sensitive') && !contains(github.event.pull_request.labels.*.name, 'performance check done')
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'performance sensitive') && !contains(github.event.pull_request.labels.*.name, 'performance check done') }}
         run: |
           echo "Perform the performance check! Once done, add the 'performance check done' label."
           exit 1
