@@ -29,7 +29,9 @@ jobs:
                   ## Checking SQL Queries
 
                   ### Confirming the SQL Query
-                  If you have written code that runs inside a ROM repository, write out the SQL query being written by ROM:`
+                  If you have written code that runs inside a ROM repository, write out the SQL query being written by ROM:
+
+                  The SQL query that ROM executes can be found by using `binding.pry` and running LE locally. Execute the new ROM method that executes queries against the database within `pry-byebug` or `pry``
               });
               console.log('comment added')
             } catch (error) {
