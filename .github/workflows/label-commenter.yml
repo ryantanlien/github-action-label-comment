@@ -97,7 +97,7 @@ jobs:
 
                   ## Final Confirmation Checklist 🏁 
                   - [ ] I have completed generating the raw SQL query being executed by ROM.
-                  - [ ] I have checked the Query Plan / AppSignal for potential performance issues.` 
+                  - [ ] I have checked the Query Plan / AppSignal for potential performance issues.`.split("\n").map(s => s.trim()).join("\n")
               });
               console.log('comment added')
             } catch (error) {
