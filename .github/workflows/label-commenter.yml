@@ -6,7 +6,7 @@ on:
 
 jobs:
   comment-pr:
-    if: ${{ github.event.label.name == 'performance sensitive' }}
+    if: ${{ github.event.label.name == 'needs performance check' }}
     runs-on: ubuntu-latest
     steps:
       - name: Comment Performance Checklist on PR
