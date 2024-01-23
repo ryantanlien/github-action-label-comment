@@ -104,20 +104,20 @@ jobs:
               console.log(error)
               console.log('comment adding failed')
             }
-    block-merging-if-performance-check-not-done:
-      if: ${{ contains(github.event.pull_request.labels.*name, 'needs performance check') && !contains(github.event.pull_request.labels.*.name, 'performance check done') }}
-      runs-on: ubuntu-latest
-      steps:
-        - name: Block merging if performance check is not done but labeled as needs performance check
-          run: |
-            echo "Perform the performance check! Once done, add the 'performance check done' label."
-            exit 1
-    unblock-merging-if-performance-check-done: 
-      if: $ {{ github.event.label.name == 'performance check done' }}
-      runs-on: ubuntu-latest
-      steps: 
-        - name: Unblock merging if performance check is done
-          if: ${{ contains(github.event.pull_request.labels.*.name, 'needs performance check') && contains(github.event.pull_request.labels.*.name, 'performance check done') }}
-          run: |
-            echo "Performance check labeled as done, unblocking merging!"
-            exit 0
+  block-merging-if-performance-check-not-done:
+    if: ${{ contains(github.event.pull_request.labels.*name, 'needs performance check') && !contains(github.event.pull_request.labels.*.name, 'performance check done') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block merging if performance check is not done but labeled as needs performance check
+        run: |
+          echo "Perform the performance check! Once done, add the 'performance check done' label."
+          exit 1
+  unblock-merging-if-performance-check-done: 
+    if: $ {{ github.event.label.name == 'performance check done' }}
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Unblock merging if performance check is done
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'needs performance check') && contains(github.event.pull_request.labels.*.name, 'performance check done') }}
+        run: |
+          echo "Performance check labeled as done, unblocking merging!"
+          exit 0
