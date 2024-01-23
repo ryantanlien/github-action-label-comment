@@ -113,7 +113,7 @@ jobs:
           echo "Perform the performance check! Once done, add the 'performance check done' label."
           exit 1
   unblock-merging-if-performance-check-done: 
-    if: $ {{ github.event.label.name == 'performance check done' }}
+    if: ${{ github.event.label.name == 'performance check done' }}
     runs-on: ubuntu-latest
     steps: 
       - name: Unblock merging if performance check is done
